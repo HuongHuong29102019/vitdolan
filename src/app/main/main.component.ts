@@ -15,14 +15,14 @@ export class MainComponent extends BaseComponent implements OnInit, AfterViewIni
   }
 
   ngOnInit(): void {
-    // Observable.combineLatest(
-    //   this._api.get('/api/item/get-all'),
-    // ).takeUntil(this.unsubscribe).subscribe(res => {
-    //   this.list_item = res[0];
-    //   setTimeout(() => {
-    //     this.loadScripts();
-    //   });
-    // }, err => { });
+    Observable.combineLatest(
+      this._api.get('/api/item/get-all'),
+    ).takeUntil(this.unsubscribe).subscribe(res => {
+      this.list_item = res[0];
+      setTimeout(() => {
+        this.loadScripts();
+      });
+    }, err => { });
   }
   ngAfterViewInit() { 
     setTimeout(() => {

@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "vitdolan"
+    }
+  },
+  "defaultProject": "vitdolan",
+  "cli": {
+    "analytics": "28315b81-c359-4e00-90c6-a5f2860fcc79"
+  }
 }

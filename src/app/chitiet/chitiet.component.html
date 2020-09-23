@@ -1,0 +1,48 @@
+ <!-- ##### Single Product Details Area Start ##### -->
+ <section class="single_product_details_area d-flex align-items-center">
+
+    <!-- Single Product Thumb -->
+    <div class="single_product_thumb clearfix">
+        <div class="product_thumbnail_slides owl-carousel">
+            <img src="{{item.item_image}}" alt="">
+            <img src="assets/img/product-img/product-big-2.jpg" alt="">
+            <img src="assets/img/product-img/product-big-3.jpg" alt="">
+        </div>
+    </div>
+
+    <!-- Single Product Description -->
+    <div class="single_product_desc clearfix">
+        <span>Jewel</span>
+        <a href="cart.html">
+            <h2>{{item.item_name}}</h2>
+        </a>
+        <p class="product-price">{{item.item_price}}</p>
+     
+   <p class="product-desc">Chất liệu : {{item.item_material}}</p>
+        <!-- Form -->
+        <form class="cart-form clearfix" method="post">
+            <!-- Select Box -->
+            <div class="select-box d-flex mt-50 mb-30">
+                <div name="select" id="productSize" class="mr-5">
+                    <p>Chiều rộng : {{item.item_width}}</p>
+                    <p>Chiều cao : {{item.item_height}}</p>
+                    <p>Chiều sâu : {{item.item_depth}}</p>
+                </div>
+
+                <div name="select" id="productColor">
+                    Màu sắc : {{item.item_color}}
+                </div>
+            </div>
+            <!-- Cart & Favourite Box -->
+            <div class="cart-fav-box d-flex align-items-center">
+                <!-- Cart -->
+                <button type="submit" name="addtocart" value="5" class="btn essence-btn">Thêm giỏ hàng</button>
+                <!-- Favourite -->
+                <div class="product-favourite ml-4">
+                    <a href="#" class="favme fa fa-heart"></a>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<!-- ##### Single Product Details Area End ##### -->
