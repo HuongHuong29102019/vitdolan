@@ -21,7 +21,7 @@
                         <li *ngIf="mn.children !=null"><a class="active"  href="#">{{mn.item_group_name}}</a>
                                 <ul class="dropdown">
                                     <ng-container *ngFor="let m of mn.children">
-                                        <li><a href="">{{m.item_group_name}}</a></li>
+                                        <li><a [routerLink] = "['/list',m.item_group_id]">{{m.item_group_name}}</a></li>
                                     </ng-container>
                                 </ul>
                         </li>
@@ -36,7 +36,7 @@
         <div class="header-meta d-flex clearfix justify-content-end">
             <!-- Search Area -->
             <div class="search-area">
-                <form action="#" method="post">
+              <form [formGroup]=""  method="post">
                     <input type="search" name="search" id="headerSearch" placeholder="Tìm kiếm">
                     <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </form>
@@ -47,7 +47,7 @@
             </div>
             <!-- User Login Info -->
             <div class="user-login-info">
-                <a href="#"><img src="assets/img/core-img/user.svg" alt=""></a>
+                <a routerLink="/login"><img src="assets/img/core-img/user.svg" alt=""></a>
             </div>
             <!-- Cart Area -->
             <div class="cart-area">
