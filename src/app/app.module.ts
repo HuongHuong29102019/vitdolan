@@ -11,6 +11,8 @@ import { ListComponent } from './list/list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LOCALE_ID } from '@angular/core';
+
 const routes: Routes = [
   {
     path: 'login',
@@ -46,7 +48,9 @@ const routes: Routes = [
     NgbModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: "es-ES" }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

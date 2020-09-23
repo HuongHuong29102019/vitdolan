@@ -145,7 +145,7 @@
                                 <div class="product-topbar d-flex align-items-center justify-content-between">
                                     <!-- Total Products -->
                                     <div class="total-products">
-                                        <p><span>186</span> products found</p>
+                                        <p><span></span> Sản phẩm</p>
                                     </div>
                                     <!-- Sorting -->
                                     <div class="product-sorting d-flex">
@@ -182,16 +182,16 @@
 
                                    
                                     <div class="product-description">
-                                        <a href="single-product-details.html">
-                                            <h6><a [routerLink]="['/chitiet',it.item_id]">{{it.item_name}}</a></h6>
+                                        <a href="single-product-details.html" style="text-decoration: none;">
+                                            <h6><a [routerLink]="['/chitiet',it.item_id]" style="color: #222222; font-weight: bold;text-decoration: none;">{{it.item_name}}</a></h6>
                                         </a>
-                                        <p class="product-price"></p>
+                                        <p class="product-price">{{it.item_price}}</p>
 
                                         
-                                        <div class="hover-content">
+                                        <div class="hover-content" style="background: #0315ff;">
                                             <!-- Add to Cart -->
                                             <div class="add-to-cart-btn">
-                                                <a href="#" class="btn essence-btn">Thêm giỏ hàng</a>
+                                                <a href="#" class="btn essence-btn" style="color: white;padding-top: 14px;">Thêm giỏ hàng</a>
                                             </div>
                                         </div>
                                     </div>
