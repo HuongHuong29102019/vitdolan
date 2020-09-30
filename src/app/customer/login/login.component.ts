@@ -1,5 +1,4 @@
-
-import { BaseComponent } from './../lib/base-component';
+import { BaseComponent } from '../../lib/base-component';
 import { Component, Injector, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -38,7 +37,7 @@ export class LoginComponent extends BaseComponent implements OnInit {
   onSubmitRegister(value: any) { 
 
     this._api.post('/api/customer/create-item', {customer_email:value.email, customer_password:value.password} ).takeUntil(this.unsubscribe).subscribe(res => {
-     alert('Đăng kí thành công');
+     alert('Tạo thành công');
       }, err => { });      
 
   }

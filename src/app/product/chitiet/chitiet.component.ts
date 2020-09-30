@@ -1,14 +1,12 @@
-import { BaseComponent } from './../lib/base-component';
-import { Routes, ActivatedRoute } from '@angular/router';
-import { Component, OnInit, AfterViewInit, Renderer2, Injector } from '@angular/core';
-import { ApiService } from '../lib/api.service';
+import { BaseComponent } from '../../lib/base-component';
+import { Component, OnInit, Injector } from '@angular/core';
 
 @Component({
   selector: 'app-chitiet',
   templateUrl: './chitiet.component.html',
   styleUrls: ['./chitiet.component.css']
 })
-export class ChitietComponent extends BaseComponent implements OnInit, AfterViewInit {
+export class ChitietComponent extends BaseComponent implements OnInit {
   item:any;
   constructor(injector: Injector) { 
     super(injector);
@@ -19,12 +17,11 @@ export class ChitietComponent extends BaseComponent implements OnInit, AfterView
       let id = params['id'];
       this._api.get('/api/item/get-by-id/'+id).takeUntil(this.unsubscribe).subscribe(res => {
         this.item = res;
+        setTimeout(() => {
+          this.loadScripts();
+        });
       }); 
     });
 
-  }
-  ngAfterViewInit() { 
-    this.loadScripts();
-    window.scroll(0,0);
   }
 }

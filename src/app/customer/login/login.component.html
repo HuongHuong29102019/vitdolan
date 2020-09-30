@@ -1,55 +1,50 @@
  <!--breadcrumbs area start-->
- <div class="breadcrumbs_area">
-    <div class="container">   
+
+    <div class="container" style="margin-top: 150px;margin-bottom: -65px;">   
         <div class="row">
             <div class="col-12">
                 <div class="breadcrumb_content">
                     <ul>
-                        <li><a href="index.html">Trang chủ</a></li>
-                        <li>Tài khoản của tôi</li>
+                        <li><a href="index.html" style="color: black;font-size: 20px;">Trang chủ</a></li>
+                        <li style="padding-top: 20px;font-size: 30px;color: #04582e;">Tài khoản của tôi</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>         
-</div>
 <!--breadcrumbs area end-->
 
-<!-- customer login start -->
-<div class="login_page_bg">
-    <div class="container">
-        <div class="customer_login">
+    <div class="container" style="    margin-top: 100px;margin-bottom: 100px;">
             <div class="row">
                <!--login area start-->
                 <div class="col-lg-6 col-md-6">
-                    <div class="account_form login">
+                    <div class="login">
                         <h2>Đăng nhập</h2>
-                        <form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin(loginForm.value)">
+                        <form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin(loginForm.value)" style="margin-top: 50px;">
                             <p>   
-                                <label>Email <span>*</span></label>
-                                <input formControlName="username" type="text">
-                                <span class="col alert alert-danger" role="alert"
-                                *ngIf="(loginForm.controls.username?.errors?.required
+                                <label style="padding-right: 54px;">Email <span>*</span></label>
+                                <input formControlName="username" type="text" style="width: 400px;padding: 5px;border: 1px solid #00000059;">
+                                <span class="col alert alert-danger" role="alert"*ngIf="(loginForm.controls.username?.errors?.required
                                 && loginForm.controls.username?.touched) && loginForm.controls.username?.touched" >
                                         Tài khoản không được để rỗng!
                                 </span>
                              </p>
                              <p>   
-                                <label>Mật khẩu <span>*</span></label>
-                                <input formControlName="password" type="password">
+                                <label style="padding-right: 30px;">Mật khẩu <span>*</span></label>
+                                <input formControlName="password" type="password"style="width: 200px;padding: 5px; border: 1px solid #979ca5;">
                                 <span class="col alert alert-danger" role="alert"
                                 *ngIf="(!loginForm.controls.password?.errors?.required
                                 && loginForm.controls.password?.touched && loginForm.controls.password?.errors?.minlength) && loginForm.controls.password?.touched">
                                         Mật khẩu không được để rỗng và độ dài mật khẩu phải lớn hơn 6 ký tự!
                                 </span> 
                              </p>   
-                            <div class="login_submit">
+                            <div class="submit">
                                <!-- <a href="#">Lost your password?</a>
                                 <label for="remember">
                                     <input formControlName="remember" id="remember" type="checkbox">
                                     Remember me
                                 </label> -->
-                                <button type="submit">Đăng nhập</button>
+                                <button type="submit" style="width: 150px;margin-top: 50px;background: #0aaf90;padding: 12px;border: none;color: white;">Đăng nhập</button>
 
                             </div>
 
@@ -60,12 +55,11 @@
 
                 <!--register area start-->
                 <div class="col-lg-6 col-md-6">
-                    <div class="account_form register">
                         <h2>Đăng kí</h2>
-                        <form [formGroup]="registerForm" (ngSubmit)="onSubmitRegister(registerForm.value)">
+                        <form [formGroup]="registerForm" (ngSubmit)="onSubmitRegister(registerForm.value)" style="margin-top: 50px;">
                             <p>   
-                                <label>Email  <span>*</span></label>
-                                <input formControlName="email" type="text">
+                                <label style="padding-right: 54px;">Email  <span>*</span></label>
+                                <input formControlName="email" type="text"style="width: 400px;padding: 5px;border: 1px solid #00000059;">
                                 <label class="col alert alert-danger" role="alert"
                                 *ngIf="(registerForm.controls.email?.errors?.required
                                 || registerForm.controls.email?.errors?.email) && registerForm.controls.email?.touched " >
@@ -73,8 +67,9 @@
                                 </label>
                              </p>
                              <p>   
-                                <label>Mật khẩu <span>*</span></label>
-                                <input formControlName="password" type="password">
+                                <label style="padding-right: 30px;">Mật khẩu <span>*</span></label>
+                                <input formControlName="password" type="password" style="width: 200px;padding: 5px; border: 1px solid #979ca5;
+                            ">
                                 <label class="col alert alert-danger" role="alert"
                                 *ngIf="(registerForm.controls.password?.errors?.required
                                 || registerForm.controls.password?.errors?.password) && registerForm.controls.password?.touched" >
@@ -82,15 +77,12 @@
                                 </label>
                              </p>
                             <div class="login_submit">
-                                <button type="submit">Đăng kí</button>
+                                <button type="submit" style="width: 150px;margin-top: 50px;background: #07a221;;padding: 12px;border: none;color: white;">Đăng kí</button>
                             </div>
-                        </form>
-                    </div>    
+                        </form> 
                 </div>
                 <!--register area end-->
             </div>   
-        </div>
     </div>
-</div>
 
 <!-- customer login end -->

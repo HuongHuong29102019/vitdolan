@@ -1,0 +1,68 @@
+<!-- ##### Breadcumb Area Start ##### -->
+<div class="breadcumb_area bg-img" style="background-image: url(img/bg-img/breadcumb.jpg);">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="page-title text-center">
+                    <h2>Checkout</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### Breadcumb Area End ##### -->
+
+<!-- ##### Checkout Area Start ##### -->
+<div class="checkout_area section-padding-80">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-12 col-md-6">
+                <div class="checkout_details_area mt-50 clearfix">
+
+                    <div class="cart-page-heading mb-30">
+                        <h5>Địa chỉ thanh toán</h5>
+                    </div>
+
+                    <form [formGroup]="hoadonForm" (ngSubmit)="onSubmit(hoadonForm.value)">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="first_name">Họ và tên <span>*</span></label>
+                                <input type="text" class="form-control" id="first_name"formControlName="ho_ten">
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label for="street_address">Address <span>*</span></label>
+                                <input type="text" class="form-control mb-3" id="street_address" formControlName="dia_chi">
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label for="phone_number">Phone No <span>*</span></label>
+                                <input type="number" class="form-control" id="phone_number" min="0" formControlName="sdt">
+                            </div>
+                        </div>
+                        <button  type="submit" class="btn essence-btn">Đặt hàng</button> 
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-5 ml-lg-auto">
+                <div class="order-details-confirmation">
+
+                    <div class="cart-page-heading">
+                        <h5>Your Order</h5>
+                        <p>The Details</p>
+                    </div>
+
+                    <ul class="order-details-form mb-4">                       
+                        <li><span>Tên sản phẩm</span> <span>Giá tiền</span></li>
+                        <li *ngFor="let it of items">
+                            <td>{{it.item_name}} <strong> × {{it.quantity}}</strong></td>
+                            <td> {{it.money}}<td>
+                        </li> 
+                        <li><span>Tổng tiền</span> <span>{{total}}</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### Checkout Area End ##### -->
