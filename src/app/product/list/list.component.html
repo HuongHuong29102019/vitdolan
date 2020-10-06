@@ -1,10 +1,10 @@
     <!-- ##### Breadcumb Area Start ##### -->
-    <div class="breadcumb_area bg-img" style="background-image: url(assets/img/bg-img/breadcumb.jpg);">
+    <div class="breadcumb_area bg-img" style="background-image: url(assets/img/bg-img/breadcumb.jpg);" style="margin-top: 100px;">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="page-title text-center">
-                        <h2>dresses</h2>
+                        <h2>{{items.item_group_name}}</h2>
                     </div>
                 </div>
             </div>
@@ -28,56 +28,15 @@
                             <div class="catagories-menu">
                                 <ul id="menu-content2" class="menu-content collapse show">
                                     <!-- Single Item -->
-                                    <li data-toggle="collapse" data-target="#clothing">
-                                        <a href="#">clothing</a>
+                                    <ng-container *ngFor="let mn of menus">
+                                    <li data-toggle="collapse" data-target="#clothing"  *ngIf="mn.children !=null">
                                         <ul class="sub-menu collapse show" id="clothing">
-                                            <li><a href="#">All</a></li>
-                                            <li><a href="#">Bodysuits</a></li>
-                                            <li><a href="#">Dresses</a></li>
-                                            <li><a href="#">Hoodies &amp; Sweats</a></li>
-                                            <li><a href="#">Jackets &amp; Coats</a></li>
-                                            <li><a href="#">Jeans</a></li>
-                                            <li><a href="#">Pants &amp; Leggings</a></li>
-                                            <li><a href="#">Rompers &amp; Jumpsuits</a></li>
-                                            <li><a href="#">Shirts &amp; Blouses</a></li>
-                                            <li><a href="#">Shirts</a></li>
-                                            <li><a href="#">Sweaters &amp; Knits</a></li>
+                                        <ng-container *ngFor="let m of mn.children">
+                                            <li><a [routerLink] = "['/product/list',m.item_group_id]" style="border-bottom: 1px solid #e0a80aa1;padding-bottom: 15px;color: black;font-size: 18px;">{{m.item_group_name}}</a></li>
+                                        </ng-container>
                                         </ul>
                                     </li>
-                                    <!-- Single Item -->
-                                    <li data-toggle="collapse" data-target="#shoes" class="collapsed">
-                                        <a href="#">shoes</a>
-                                        <ul class="sub-menu collapse" id="shoes">
-                                            <li><a href="#">All</a></li>
-                                            <li><a href="#">Bodysuits</a></li>
-                                            <li><a href="#">Dresses</a></li>
-                                            <li><a href="#">Hoodies &amp; Sweats</a></li>
-                                            <li><a href="#">Jackets &amp; Coats</a></li>
-                                            <li><a href="#">Jeans</a></li>
-                                            <li><a href="#">Pants &amp; Leggings</a></li>
-                                            <li><a href="#">Rompers &amp; Jumpsuits</a></li>
-                                            <li><a href="#">Shirts &amp; Blouses</a></li>
-                                            <li><a href="#">Shirts</a></li>
-                                            <li><a href="#">Sweaters &amp; Knits</a></li>
-                                        </ul>
-                                    </li>
-                                    <!-- Single Item -->
-                                    <li data-toggle="collapse" data-target="#accessories" class="collapsed">
-                                        <a href="#">accessories</a>
-                                        <ul class="sub-menu collapse" id="accessories">
-                                            <li><a href="#">All</a></li>
-                                            <li><a href="#">Bodysuits</a></li>
-                                            <li><a href="#">Dresses</a></li>
-                                            <li><a href="#">Hoodies &amp; Sweats</a></li>
-                                            <li><a href="#">Jackets &amp; Coats</a></li>
-                                            <li><a href="#">Jeans</a></li>
-                                            <li><a href="#">Pants &amp; Leggings</a></li>
-                                            <li><a href="#">Rompers &amp; Jumpsuits</a></li>
-                                            <li><a href="#">Shirts &amp; Blouses</a></li>
-                                            <li><a href="#">Shirts</a></li>
-                                            <li><a href="#">Sweaters &amp; Knits</a></li>
-                                        </ul>
-                                    </li>
+                                </ng-container>
                                 </ul>
                             </div>
                         </div>
@@ -145,20 +104,31 @@
                                 <div class="product-topbar d-flex align-items-center justify-content-between">
                                     <!-- Total Products -->
                                     <div class="total-products">
-                                        <p><span></span> Sản phẩm</p>
+                                        <p><span>{{totalItems}}</span> Sản phẩm</p>
+                                    </div>
+                                     <!-- Sorting -->
+                                     <div class="product-sorting d-flex">
+                                        <p>Sap xep:</p>
+                                        <!-- <form [formGroup]="" method="get"> -->
+                                            <select id="sortByselect" name="orderby" [(ngModel)]="pageSize" (ngModelChange)="loadPage(1)" style="border: 1px solid #1d1a1a38;                                     width: 50px;">
+                                                <!-- <option selected value="{{items.item_price}}"></option> -->
+                                                <option selected value="5">5</option>
+                                                <option selected value="20">20</option>
+                                            </select>
+                                            <input type="submit" class="d-none" value="">
+                                        <!-- </form> -->
                                     </div>
                                     <!-- Sorting -->
                                     <div class="product-sorting d-flex">
-                                        <p>Sort by:</p>
-                                        <form [formGroup]="" method="get">
-                                            <select name="select" id="sortByselect">
-                                                <option value="value">Highest Rated</option>
-                                                <option value="value">Newest</option>
-                                                <option value="value">Price: $$ - $</option>
-                                                <option value="value">Price: $ - $$</option>
+                                        <p>Chọn số sản phẩm:</p>
+                                        <!-- <form [formGroup]="" method="get"> -->
+                                            <select id="sortByselect" name="orderby" [(ngModel)]="pageSize" (ngModelChange)="loadPage(1)" style="border: 1px solid #1d1a1a38;                                     width: 50px;">
+                                                <option selected value="3">3</option>
+                                                <option selected value="5">5</option>
+                                                <option selected value="20">20</option>
                                             </select>
                                             <input type="submit" class="d-none" value="">
-                                        </form>
+                                        <!-- </form> -->
                                     </div>
                                 </div>
                             </div>
@@ -173,7 +143,7 @@
                                 <div class="single-product-wrapper">
                                    
                                     <div class="product-img">
-                                        <img src="{{it.item_image}}" alt="">                                   
+                                        <img src="{{it.item_image}}" alt="" style="height:300px;width:255px">                                   
                                         
                                         <div class="product-favourite">
                                             <a href="#" class="favme fa fa-heart"></a>
@@ -183,7 +153,7 @@
                                    
                                     <div class="product-description">
                                         <a href="single-product-details.html" style="text-decoration: none;">
-                                            <h6><a [routerLink]="['/chitiet',it.item_id]" style="color: #222222; font-weight: bold;text-decoration: none;">{{it.item_name}}</a></h6>
+                                            <h6><a [routerLink]="['/product/chitiet',it.item_id]" style="color: #222222; font-weight: bold;text-decoration: none;">{{it.item_name}}</a></h6>
                                         </a>
                                         <p class="product-price">{{it.item_price}}</p>
 

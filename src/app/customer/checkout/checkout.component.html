@@ -55,10 +55,10 @@
                     <ul class="order-details-form mb-4">                       
                         <li><span>Tên sản phẩm</span> <span>Giá tiền</span></li>
                         <li *ngFor="let it of items">
-                            <td>{{it.item_name}} <strong> × {{it.quantity}}</strong></td>
-                            <td> {{it.money}}<td>
+                            <p style="color: #000000c9;">{{it.item_name}} <strong> × {{it.quantity}}</strong></p>
+                            <p style="color: #000000c9;"> {{it.money}}</p>
                         </li> 
-                        <li><span>Tổng tiền</span> <span>{{total}}</span></li>
+                        <li><span style="color: black;font-weight: bold;">Tổng tiền</span> <span>{{total}}</span></li>
                     </ul>
                 </div>
             </div>

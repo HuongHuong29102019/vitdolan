@@ -3,7 +3,7 @@
         <!-- Classy Menu -->
         <nav class="classy-navbar" id="essenceNav">
             <!-- Logo -->
-            <a class="nav-brand" href="index.html"><img src="assets/img/core-img/logo.png" alt=""></a>
+            <a class="nav-brand" href="index.html" style="color: black;font-weight: bold;">Jewel</a>
             <!-- Navbar Toggler -->
             <div class="classy-navbar-toggler">
                 <span class="navbarToggler"><span></span><span></span><span></span></span>
@@ -21,7 +21,7 @@
                         <li *ngIf="mn.children !=null"><a class="active"  href="#">{{mn.item_group_name}}</a>
                                 <ul class="dropdown">
                                     <ng-container *ngFor="let m of mn.children">
-                                        <li><a [routerLink] = "['/list',m.item_group_id]">{{m.item_group_name}}</a></li>
+                                        <li><a [routerLink] = "['/product/list',m.item_group_id]">{{m.item_group_name}}</a></li>
                                     </ng-container>
                                 </ul>
                         </li>
@@ -47,11 +47,11 @@
             </div>
             <!-- User Login Info -->
             <div class="user-login-info">
-                <a routerLink="/login"><img src="assets/img/core-img/user.svg" alt=""></a>
+                <a routerLink="/customer/login"><img src="assets/img/core-img/user.svg" alt=""></a>
             </div>
             <!-- Cart Area -->
             <div class="cart-area">
-                <a href="#" id="essenceCartBtn"  routerLink="/customer/cart"><img src="assets/img/core-img/bag.svg" alt=""> <span>{{total}}</span></a>
+                <a href="#" id="essenceCartBtn"><img src="assets/img/core-img/bag.svg" alt=""> <span>{{total}}</span></a>
             </div>
         </div>
 
@@ -92,7 +92,7 @@
           <li><span>Tổng tiền:</span> <span>{{money}}</span></li>
         </ul>
         <div class="checkout-btn mt-100">
-          <a routerLink="/customer/checkout" class="btn essence-btn" style="background: blue;padding: 12px;color: white;">Thanh toán</a>
+          <a routerLink="/customer/cart" class="btn essence-btn" style="background: blue;padding: 12px;color: white;">Giỏ hàng</a>
         </div>
       </div>
     </div>

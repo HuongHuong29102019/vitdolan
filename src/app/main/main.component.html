@@ -39,7 +39,7 @@
           <div class="single-product-wrapper">
             <!-- Product Image -->
             <div class="product-img">
-              <img src="{{it.item_image}}" alt="">
+              <img src="{{it.item_image}}" alt="" style="width:255;height:300px">
               <!-- Favourite -->
               <div class="product-favourite">
                 <a href="#" class="favme fa fa-heart"></a>
@@ -47,7 +47,7 @@
             </div>
             <!-- Product Description -->
             <div class="product-description">
-              <a [routerLink]="['/chitiet',it.item_id]" style="color: #222222; font-weight: bold;text-decoration: none;">{{it.item_name}}</a>
+              <a [routerLink]="['/product/chitiet',it.item_id]" style="color: #222222; font-weight: bold;text-decoration: none;">{{it.item_name}}</a>
               <p class="product-price">{{it.item_price}}</p>
               <!-- Hover Content -->
               <div class="hover-content"  style="background: #0315ff;">
@@ -65,32 +65,3 @@
   </div>
 </section>
 <!-- ##### New Arrivals Area End ##### -->
-
-<!-- ##### Brands Area Start ##### -->
-<div class="brands-area d-flex align-items-center justify-content-between">
-  <!-- Brand Logo -->
-  <div class="single-brands-logo">
-    <img src="assets/img/core-img/brand1.png" alt="">
-  </div>
-  <!-- Brand Logo -->
-  <div class="single-brands-logo">
-    <img src="assets/img/core-img/brand2.png" alt="">
-  </div>
-  <!-- Brand Logo -->
-  <div class="single-brands-logo">
-    <img src="assets/img/core-img/brand3.png" alt="">
-  </div>
-  <!-- Brand Logo -->
-  <div class="single-brands-logo">
-    <img src="assets/img/core-img/brand4.png" alt="">
-  </div>
-  <!-- Brand Logo -->
-  <div class="single-brands-logo">
-    <img src="assets/img/core-img/brand5.png" alt="">
-  </div>
-  <!-- Brand Logo -->
-  <div class="single-brands-logo">
-    <img src="assets/img/core-img/brand6.png" alt="">
-  </div>
-</div>
-<!-- ##### Brands Area End ##### -->
