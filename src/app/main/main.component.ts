@@ -11,6 +11,10 @@ import 'rxjs/add/operator/takeUntil';
 })
 export class MainComponent extends BaseComponent implements OnInit {
   list_item:any;
+  list: any;
+  page: any;
+  pageSize: any;
+  totalItems:any;
   constructor(injector: Injector) { 
     super(injector);
   }

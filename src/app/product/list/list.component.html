@@ -65,10 +65,10 @@
                             <!-- Widget Title 2 -->
                             <p class="widget-title2 mb-30">Color</p>
                             <div class="widget-desc">
-                                <ul class="d-flex">
-                                    <li><a href="#" class="color1"></a></li>
+                                <ul class="d-flex" id="sortByselect" name="orderby" [(ngModel)]="pageSize" (ngModelChange)="loadPage(1)" style="border: 1px solid #1d1a1a38;width: 50px;">
+                                    <li><a value="color1" class="color1"></a></li>
                                     <li><a href="#" class="color2"></a></li>
-                                    <li><a href="#" class="color3"></a></li>
+                                    <li><a value="color3" class="color3"></a></li>
                                     <li><a href="#" class="color4"></a></li>
                                     <li><a href="#" class="color5"></a></li>
                                     <li><a href="#" class="color6"></a></li>
@@ -127,7 +127,6 @@
                                                 <option selected value="5">5</option>
                                                 <option selected value="20">20</option>
                                             </select>
-                                            <input type="submit" class="d-none" value="">
                                         <!-- </form> -->
                                     </div>
                                 </div>
