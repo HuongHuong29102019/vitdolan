@@ -36,12 +36,11 @@
         <div class="header-meta d-flex clearfix justify-content-end">
             <!-- Search Area -->
             <div class="search-area">
-              <form [formGroup]=""  method="post">
-                    <input type="search" name="search" id="headerSearch" placeholder="Tìm kiếm">
-                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                </form>
+              <form [formGroup]=""  method="get">
+                    <input type="text" name="search" id="headerSearch" placeholder="Tìm kiếm" #timkiem >
+                    <button  (click)="search(timkiem.value)" ><i class="fa fa-search" aria-hidden="true" ></i></button>
+              </form>
             </div>
-            <!-- Favourite Area -->
             <div class="favourite-area">
                 <a href="#"><img src="assets/img/core-img/heart.svg" alt=""></a>
             </div>
@@ -51,7 +50,7 @@
             </div>
             <!-- Cart Area -->
             <div class="cart-area">
-                <a href="#" id="essenceCartBtn"><img src="assets/img/core-img/bag.svg" alt=""> <span>{{total}}</span></a>
+                <a href="#" id="essenceCartBtn"><img src="assets/img/core-img/bag.svg" alt=""> <span>{{quantity}}</span></a>
             </div>
         </div>
 

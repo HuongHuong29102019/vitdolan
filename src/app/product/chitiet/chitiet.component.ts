@@ -15,24 +15,28 @@ export class ChitietComponent extends BaseComponent implements OnInit {
   }
   ngOnInit(): void {
     this.item = {};
+    let id='';
     this._route.params.subscribe(params => {
-      let id = params['id'];
-      let group_id=params['group_id'];
-      this._api.get('/api/item/get-by-id/'+id).takeUntil(this.unsubscribe).subscribe(res => {
-        this.item = res;
-        setTimeout(() => {
-          this.loadScripts();
-        });
-      }); 
+      id = params['id'];
     });
-    // Observable.combineLatest(
-    //   this._api.get('/api/item/get-same-item'),
-    // ).takeUntil(this.unsubscribe).subscribe(res => {
-    //   this.list_item_same_type = res[0];
-    //   setTimeout(() => {
-    //     this.loadScripts();
-    //   });
-    // }, err => { });
+    this.getByID(id);
+  }
+  getByID(id){
+    this._api.get('/api/item/get-by-id/'+id).takeUntil(this.unsubscribe).subscribe(res => {
+    this.item = res;
+    this.getByCategory(res.item_group_id)      
+    setTimeout(() => {
+        this.loadScripts();
+      });
+    });
+  }
+  getByCategory(id){
+    this._api.get('/api/item/get-same-item/'+id).takeUntil(this.unsubscribe).subscribe(res => {
+    this.list_item_same_type = res;
+    setTimeout(() => {
+        this.loadScripts();
+      });
+    }); 
   }
   addToCart(item) { 
     this._cart.addToCart(item);

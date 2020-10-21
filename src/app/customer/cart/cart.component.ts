@@ -9,6 +9,7 @@ import { Component, Injector, OnInit } from '@angular/core';
 export class CartComponent extends BaseComponent implements OnInit {
   items:any;
   total:any;
+  quantity:any;
   constructor(injector: Injector) { 
     super(injector);
   }
@@ -17,9 +18,11 @@ export class CartComponent extends BaseComponent implements OnInit {
     this._cart.items.subscribe((res) => {
       this.items = res;
       this.total = 0;
+      this.quantity = 0;
       for(let x of this.items){ 
         x.money = x.quantity * x.item_price;
         this.total += x.quantity * x.item_price;
+        this.quantity +=x.quantity;
       } 
     });
   } 
