@@ -11,6 +11,7 @@ import 'rxjs/add/operator/takeUntil';
 })
 export class MainComponent extends BaseComponent implements OnInit {
   list_item:any;
+  list_item_buy:any;
   list: any;
   page: any;
   pageSize: any;
@@ -28,10 +29,18 @@ export class MainComponent extends BaseComponent implements OnInit {
         this.loadScripts();
       });
     }, err => { });
+    Observable.combineLatest(
+      this._api.get('/api/item/get-buy'),
+    ).takeUntil(this.unsubscribe).subscribe(res => {
+      this.list_item_buy = res[0];
+      setTimeout(() => {
+        this.loadScripts();
+      });
+    }, err => { });
   }
   
   addToCart(it) { 
     this._cart.addToCart(it);
     alert('Thêm thành công!'); 
   }
-}
+} 

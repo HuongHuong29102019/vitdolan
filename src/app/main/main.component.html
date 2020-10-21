@@ -65,3 +65,52 @@
   </div>
 </section>
 <!-- ##### New Arrivals Area End ##### -->
+
+<!-- ##### New Arrivals Area Start ##### -->
+<section class="new_arrivals_area section-padding-80 clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-heading text-center">
+          <h2>Sản phẩm bán chạy</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="popular-products-slides owl-carousel">
+          <ng-container *ngFor="let itb of list_item_buy">        
+          <!-- Single Product -->
+          <div class="single-product-wrapper">
+            <!-- Product Image -->
+            <div class="product-img">
+              <img src="{{itb.item_image}}" alt="" style="width:255;height:300px">
+              <!-- Favourite -->
+              <div class="product-favourite">
+                <a href="#" class="favme fa fa-heart"></a>
+              </div>
+            </div>
+            <!-- Product Description -->
+            <div class="product-description">
+              <a [routerLink]="['/product/chitiet',itb.item_id]" style="color: #222222; font-weight: bold;text-decoration: none;">{{itb.item_name}}</a>
+              <p class="product-price">{{itb.item_price}}</p>
+              <!-- Hover Content -->
+              <div class="hover-content"  style="background: #0315ff;">
+                <!-- Add to Cart -->
+                <div class="add-to-cart-btn">
+                  <a (click)="addToCart(itb)" title="Add to cart" class="btn essence-btn" style="color: white;padding-top: 14px;">Thêm giỏ hàng</a>               
+                </div>
+              </div>
+            </div>
+          </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ##### New Arrivals Area End ##### -->
+
+
