@@ -48,7 +48,7 @@
             <!-- Product Description -->
             <div class="product-description">
               <a [routerLink]="['/product/chitiet',it.item_id]" style="color: #222222; font-weight: bold;text-decoration: none;">{{it.item_name}}</a>
-              <p class="product-price">{{it.item_price}}</p>
+              <p class="product-price">{{ it.item_price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</p>
               <!-- Hover Content -->
               <div class="hover-content"  style="background: #0315ff;">
                 <!-- Add to Cart -->
@@ -95,7 +95,7 @@
             <!-- Product Description -->
             <div class="product-description">
               <a [routerLink]="['/product/chitiet',itb.item_id]" style="color: #222222; font-weight: bold;text-decoration: none;">{{itb.item_name}}</a>
-              <p class="product-price">{{itb.item_price}}</p>
+              <p class="product-price">{{ itb.item_price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</p>
               <!-- Hover Content -->
               <div class="hover-content"  style="background: #0315ff;">
                 <!-- Add to Cart -->

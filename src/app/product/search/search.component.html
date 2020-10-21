@@ -155,7 +155,7 @@
                                         <a href="single-product-details.html" style="text-decoration: none;">
                                             <h6><a [routerLink]="['/product/chitiet',it.item_id]" style="color: #222222; font-weight: bold;text-decoration: none;">{{it.item_name}}</a></h6>
                                         </a>
-                                        <p class="product-price">{{it.item_price}}</p>
+                                        <p class="product-price">{{ it.item_price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</p>
 
                                         
                                         <div class="hover-content" style="background: #0315ff;">

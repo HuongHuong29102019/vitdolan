@@ -39,9 +39,9 @@
                                             <tr *ngFor="let c of items">
                                                 <td class="product_thumb" style="width:100px"><img src="{{c.item_image}}" alt="" style="width:100px"></td>
                                                 <td class="product_name">{{c.item_name}}</td>
-                                                <td class="product-price">{{c.item_price}}</td>
+                                                <td class="product-price">{{ c.item_price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</td>
                                                 <td class="product_quantity"><input style="border: 1px solid #00000033;" #inp  min="1" max="100" (change)="addQty(c,inp.value)" [value]="c.quantity" type="number"></td>
-                                                <td class="product_total">{{c.money}}</td>
+                                                <td class="product_total">{{ c.money.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</td>
                                                 <td class="product_remove"><a (click)="_cart.deleteItem(c.item_id)"><i class="fa fa-trash-o"></i></a></td>
                                             </tr>
                                         </tbody>
@@ -67,7 +67,7 @@
                                         </div>
                                        <div class="cart_subtotal">
                                            <p style="float: left;width: 400px;color: #000000cf;font-weight: bold;font-size: 18px;">Tổng tiền</p>
-                                           <p class="cart_amount">{{total}} đ</p>
+                                           <p class="cart_amount">{{ total.toLocaleString('vi', {style : 'currency', currency : 'VND'})}} đ</p>
                                        </div>
                                        <div class="checkout_btn" style="text-align: center; height: 50px;padding: 11px;background: #087d80;margin-top: 50px;">
                                            <a  routerLink="/customer/checkout" style="font-size: 20px;color: white;" >Tiến hành thanh toán</a>

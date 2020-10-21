@@ -56,9 +56,9 @@
                         <li><span>Tên sản phẩm</span> <span>Giá tiền</span></li>
                         <li *ngFor="let it of items">
                             <p style="color: #000000c9;">{{it.item_name}} <strong> × {{it.quantity}}</strong></p>
-                            <p style="color: #000000c9;"> {{it.money}}</p>
+                            <p style="color: #000000c9;"> {{ it.money.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</p>
                         </li> 
-                        <li><span style="color: black;font-weight: bold;">Tổng tiền</span> <span>{{total}}</span></li>
+                        <li><span style="color: black;font-weight: bold;">Tổng tiền</span> <span>{{ total.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</span></li>
                     </ul>
                 </div>
             </div>

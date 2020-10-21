@@ -16,7 +16,7 @@
         <a href="cart.html">
             <h2>{{item.item_name}}</h2>
         </a>
-        <p class="product-price">{{item.item_price}}</p>
+        <p class="product-price">{{ item.item_price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</p>
      
    <p class="product-desc">Chất liệu : {{item.item_material}}</p>
         <!-- Form -->
