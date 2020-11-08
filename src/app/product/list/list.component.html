@@ -4,7 +4,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="page-title text-center">
-                        <h2>{{items.item_group_name}}</h2>
+                        <h2 style="color: black;">{{items.item_group_name}}</h2>
                     </div>
                 </div>
             </div>
@@ -109,20 +109,18 @@
                                      <!-- Sorting -->
                                      <div class="product-sorting d-flex">
                                         <p>Sap xep:</p>
-                                        <!-- <form [formGroup]="" method="get"> -->
-                                            <select id="sortByselect" name="orderby" [(ngModel)]="pageSize" (ngModelChange)="loadPage(1)" style="border: 1px solid #1d1a1a38;                                     width: 50px;">
-                                                <!-- <option selected value="{{items.item_price}}"></option> -->
-                                                <option selected value="5">5</option>
-                                                <option selected value="20">20</option>
+                                     
+                                        <label>Sort by &nbsp;</label>
+                                            <select id="sortByselect"  [(ngModel)]="pageSize" (ngModelChange)="loadPage(1)" style="border: 1px solid #1d1a1a38;                                     width: 50px;">
+                                              <option> <button (click)="onAsc()">Giá tăng dần</button> </option> 
                                             </select>
-                                            <input type="submit" class="d-none" value="">
-                                        <!-- </form> -->
+                            
                                     </div>
                                     <!-- Sorting -->
                                     <div class="product-sorting d-flex">
                                         <p>Chọn số sản phẩm:</p>
                                         <!-- <form [formGroup]="" method="get"> -->
-                                            <select id="sortByselect" name="orderby" [(ngModel)]="pageSize" (ngModelChange)="loadPage(1)" style="border: 1px solid #1d1a1a38;                                     width: 50px;">
+                                            <select id="sortByselect" [(ngModel)]="pageSize" (ngModelChange)="loadPage(1)" style="border: 1px solid #1d1a1a38;                                     width: 50px;">
                                                 <option selected value="3">3</option>
                                                 <option selected value="5">5</option>
                                                 <option selected value="20">20</option>

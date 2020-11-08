@@ -1,98 +1,99 @@
 <header class="header_area">
-    <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
-        <!-- Classy Menu -->
-        <nav class="classy-navbar" id="essenceNav">
-            <!-- Logo -->
-            <a class="nav-brand" [routerLink] = "['']"style="color: black;font-weight: bold;">Jewel</a>
-            <!-- Navbar Toggler -->
-            <div class="classy-navbar-toggler">
-                <span class="navbarToggler"><span></span><span></span><span></span></span>
-            </div>
-            <!-- Menu -->
-            <div class="classy-menu" style="margin-top: 26px;">
-                <!-- close btn -->
-                <div class="classycloseIcon">
-                    <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                </div>
-                 <!-- Nav Start -->
-                 <div class="classynav">
-                    <ul>
-                        <ng-container *ngFor="let mn of menus">
-                        <li *ngIf="mn.children !=null"><a class="active"  href="#">{{mn.item_group_name}}</a>
-                                <ul class="dropdown">
-                                    <ng-container *ngFor="let m of mn.children">
-                                        <li><a [routerLink] = "['/product/list',m.item_group_id]">{{m.item_group_name}}</a></li>
-                                    </ng-container>
-                                </ul>
-                        </li>
-                        </ng-container>
-                    </ul>
-                </div>
-                <!-- Nav End -->
-            </div>
-        </nav>
+  <div class="classy-nav-container breakpoint-off d-flex align-items-center justify-content-between">
+      <!-- Classy Menu -->
+      <nav class="classy-navbar" id="essenceNav">
+          <!-- Logo -->
+          <a class="nav-brand" [routerLink] = "['']"style="color: black;font-weight: bold;">Jewel</a>
+          <!-- Navbar Toggler -->
+          <div class="classy-navbar-toggler">
+              <span class="navbarToggler"><span></span><span></span><span></span></span>
+          </div>
+          <!-- Menu -->
+          <div class="classy-menu" style="margin-top: 26px;">
+              <!-- close btn -->
+              <div class="classycloseIcon">
+                  <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+              </div>
+               <!-- Nav Start -->
+               <div class="classynav">
+                  <ul>
+                      <ng-container *ngFor="let mn of menus">
+                      <li *ngIf="mn.children !=null"><a class="active"  href="#">{{mn.item_group_name}}</a>
+                              <ul class="dropdown">
+                                  <ng-container *ngFor="let m of mn.children">
+                                      <li><a [routerLink] = "['/product/list',m.item_group_id]">{{m.item_group_name}}</a></li>
+                                  </ng-container>
+                              </ul>
+                      </li>
+                      </ng-container>
+                  </ul>
+              </div>
+              <!-- Nav End -->
+          </div>
+      </nav>
 
-        <!-- Header Meta Data -->
-        <div class="header-meta d-flex clearfix justify-content-end">
-            <!-- Search Area -->
-            <div class="search-area">
-              <form [formGroup]=""  method="get">
-                    <input type="text" name="search" id="headerSearch" placeholder="Tìm kiếm" #timkiem >
-                    <button  (click)="search(timkiem.value)" ><i class="fa fa-search" aria-hidden="true" ></i></button>
-              </form>
-            </div>
-            <div class="favourite-area">
-                <a href="#"><img src="assets/img/core-img/heart.svg" alt=""></a>
-            </div>
-            <!-- User Login Info -->
-            <div class="user-login-info">
-                <a routerLink="/customer/login"><img src="assets/img/core-img/user.svg" alt=""></a>
-            </div>
-            <!-- Cart Area -->
-            <div class="cart-area">
-                <a href="#" id="essenceCartBtn"><img src="assets/img/core-img/bag.svg" alt=""> <span>{{quantity}}</span></a>
-            </div>
-        </div>
+      <!-- Header Meta Data -->
+      <div class="header-meta d-flex clearfix justify-content-end">
+          <!-- Search Area -->
+          <div class="search-area">
+            <form [formGroup]=""  method="get">
+                  <input type="text" name="search" id="headerSearch" placeholder="Tìm kiếm" #timkiem >
+                  <button  (click)="search(timkiem.value)" ><i class="fa fa-search" aria-hidden="true" ></i></button>
+            </form>
+          </div>
+          <div class="favourite-area">
+              <a href="#"><img src="assets/images/core-img/heart.svg" alt=""></a>
+          </div>
+          <!-- User Login Info -->
+          <div class="user-login-info">
+              <a routerLink="/customer/login"><img src="assets/images/core-img/user.svg" alt=""></a>
+          </div>
+          <!-- Cart Area -->
+          <div class="cart-area">
+              <a routerLink="/customer/cart"  id="essenceCartBtn"><img src="assets/images/core-img/bag.svg" alt=""> <span>{{total}}</span></a>
+          </div>
+      </div>
 
-    </div>
+  </div>
 </header>
+<div class="cart-bg-overlay"></div>
 <div class="right-side-cart-area">
 
-    <!-- Cart Button -->
-    <div class="cart-button">
-      <a href="#" id="rightSideCart"><img src="assets/img/core-img/bag.svg" alt=""> <span>{{total}}</span></a>
-    </div>
-  
-    <div class="cart-content d-flex">
-  
-      <!-- Cart List Area -->
-      <div class="cart-list">
-        <!-- Single Cart Item -->
-        <div class="single-cart-item" *ngFor="let c of items">
-          <a href="#" class="product-image">
-            <img src="{{c.item_image}}" class="cart-thumb" alt="">
-            <!-- Cart Item Desc -->
-            <div class="cart-item-desc">
-              <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
-              <span class="badge">Jewel</span>
-              <h6>{{c.item_name}}</h6>
-              <p class="price">{{c.moneysum}}</p>
-            </div>
-          </a>
-        </div>
+  <!-- Cart Button -->
+  <div class="cart-button">
+    <a routerLink="/customer/cart"  id="rightSideCart"><img src="assets/images/core-img/bag.svg" alt=""> <span>{{total}}</span></a>
+  </div>
+
+  <div class="cart-content d-flex">
+
+    <!-- Cart List Area -->
+    <div class="cart-list">
+      <!-- Single Cart Item -->
+      <div class="single-cart-item" *ngFor="let c of items">
+        <a href="#" class="product-image">
+          <img src="{{c.item_image}}" class="cart-thumb" alt="">
+          <!-- Cart Item Desc -->
+          <div class="cart-item-desc">
+            <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
+            <span class="badge">Jewel</span>
+            <h6>{{c.item_name}}</h6>
+            <p class="price">{{c.moneysum}}</p>
+          </div>
+        </a>
       </div>
-  
-      <!-- Cart Summary -->
-      <div class="cart-amount-summary">
-  
-        <h2>Sản phẩm</h2>
-        <ul class="summary-table">
-          <li><span>Số lượng:</span> <span>{{total}}</span></li>
-          <li><span>Tổng tiền:</span> <span>{{money}}</span></li>
-        </ul>
-        <div class="checkout-btn mt-100">
-          <a routerLink="/customer/cart" class="btn essence-btn" style="background: blue;padding: 12px;color: white;">Giỏ hàng</a>
-        </div>
+    </div>
+
+    <!-- Cart Summary -->
+    <div class="cart-amount-summary">
+
+      <h2>Sản phẩm</h2>
+      <ul class="summary-table">
+        <li><span>Số lượng:</span> <span>{{total}}</span></li>
+        <li><span>Tổng tiền:</span> <span>{{money}}</span></li>
+      </ul>
+      <div class="checkout-btn mt-100">
+        <a routerLink="/customer/cart" class="btn essence-btn" style="background: blue;padding: 12px;color: white;">Giỏ hàng</a>
       </div>
     </div>
   </div>
+</div>

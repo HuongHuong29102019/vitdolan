@@ -2,6 +2,7 @@
 import { BaseComponent } from './../../lib/base-component';
 import { Component, Injector, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -12,7 +13,7 @@ export class CheckoutComponent extends BaseComponent implements OnInit {
   items:any;
   total:any;
   public hoadonForm: FormGroup;
-  constructor(injector: Injector) { 
+  constructor(private router: Router, injector: Injector) { 
     super(injector);
   }
 
@@ -21,6 +22,8 @@ export class CheckoutComponent extends BaseComponent implements OnInit {
     debugger;
     this._api.post('/api/hoadon/create-hoa-don', hoadon).takeUntil(this.unsubscribe).subscribe(res => {
       alert('Tạo thành công');
+      this.router.navigate(['/']);
+        this._cart.clearCart();
        }, err => { });      
  
   }
@@ -43,5 +46,4 @@ export class CheckoutComponent extends BaseComponent implements OnInit {
     });
 
   }
-
 }
