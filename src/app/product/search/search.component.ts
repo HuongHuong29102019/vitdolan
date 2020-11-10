@@ -55,6 +55,12 @@ export class SearchComponent extends BaseComponent implements OnInit {
         }, err => { });       
    });   
   }
+  swish(it)
+  {
+    this._api.get('/api/item/get-by-id-swish/'+ it.item_id).takeUntil(this.unsubscribe).subscribe((res:any) => {
+      alert('Đã thích sản phẩm !'); 
+      }); 
+  }
   addToCart(it) { 
     this._cart.addToCart(it);
     alert('Thêm thành công!'); 

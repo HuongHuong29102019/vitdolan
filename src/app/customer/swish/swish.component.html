@@ -1,0 +1,55 @@
+  <!--breadcrumbs area start-->
+  <div class="breadcrumbs_area" style="margin-top: 100px;text-align: center;">
+    <div class="container">   
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb_content">
+                    <ul>
+                        <li><a [routerLink]="['']" style="text-decoration: none;color: #000000c7;font-size: 16px;border-bottom: 1px solid #0000009e;">Trang chủ</a></li>
+                        <li style="margin-bottom: 30px;margin-top: 10px;font-size: 30px;color: #087d6d;">Sản phẩm yêu thích</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>         
+</div>
+<!--breadcrumbs area end-->
+
+<!--shopping cart area start -->
+<div class="cart_page_bg">
+    <div class="container">
+        <div class="shopping_cart_area">
+            <form action="#"> 
+                    <div class="row" style="margin-bottom: 100px;">
+                        <div class="col-12">
+                            <div class="table_desc">
+                                <div class="cart_page table-responsive">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th class="product_thumb">Ảnh</th>
+                                                <th class="product_name">Tên sản phẩm</th>
+                                                <th class="product-price">Giá</th>
+                                                <th class="product-price">Thêm giỏ hàng</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let c of items">
+                                                <td class="product_thumb" style="width:100px"><img src="{{c.item_image}}" alt="" style="width:100px"></td>
+                                                <td class="product_name">{{c.item_name}}</td>
+                                                <td class="product-price">{{ c.item_price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</td>
+                                                <td class="product_total" style="text-align: center;">    
+                                                    <a (click)="addToCart(c)"> <i class="fa fa-cart-arrow-down " style="font-size: 20px;color: #095a57;"></i></a>               
+                                            </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>   
+                                </div>  
+                            </div>
+                         </div>
+                     </div>
+                </form>   
+        </div>
+    </div>
+</div>
+<!--shopping cart area end -->

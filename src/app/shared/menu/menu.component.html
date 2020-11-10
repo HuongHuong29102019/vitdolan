@@ -18,7 +18,7 @@
                <div class="classynav">
                   <ul>
                       <ng-container *ngFor="let mn of menus">
-                      <li *ngIf="mn.children !=null"><a class="active"  href="#">{{mn.item_group_name}}</a>
+                      <li *ngIf="mn.children !=null"><a href="#">{{mn.item_group_name}}</a>
                               <ul class="dropdown">
                                   <ng-container *ngFor="let m of mn.children">
                                       <li><a [routerLink] = "['/product/list',m.item_group_id]">{{m.item_group_name}}</a></li>
@@ -42,7 +42,7 @@
             </form>
           </div>
           <div class="favourite-area">
-              <a href="#"><img src="assets/images/core-img/heart.svg" alt=""></a>
+              <a routerLink="/customer/swish"><img src="assets/images/core-img/heart.svg" alt=""></a>
           </div>
           <!-- User Login Info -->
           <div class="user-login-info">
@@ -50,7 +50,7 @@
           </div>
           <!-- Cart Area -->
           <div class="cart-area">
-              <a routerLink="/customer/cart"  id="essenceCartBtn"><img src="assets/images/core-img/bag.svg" alt=""> <span>{{total}}</span></a>
+              <a id="essenceCartBtn"><img src="assets/images/core-img/bag.svg" alt=""> <span>{{total}}</span></a>
           </div>
       </div>
 
@@ -61,7 +61,7 @@
 
   <!-- Cart Button -->
   <div class="cart-button">
-    <a routerLink="/customer/cart"  id="rightSideCart"><img src="assets/images/core-img/bag.svg" alt=""> <span>{{total}}</span></a>
+    <a  id="rightSideCart"><img src="assets/images/core-img/bag.svg" alt=""> <span>{{total}}</span></a>
   </div>
 
   <div class="cart-content d-flex">
@@ -74,10 +74,10 @@
           <img src="{{c.item_image}}" class="cart-thumb" alt="">
           <!-- Cart Item Desc -->
           <div class="cart-item-desc">
-            <span class="product-remove"><i class="fa fa-close" aria-hidden="true"></i></span>
+            <span class="product-remove"><a (click)="_cart.deleteItem(c.item_id)"><i class="fa fa-close" aria-hidden="true"></i></a></span>
             <span class="badge">Jewel</span>
             <h6>{{c.item_name}}</h6>
-            <p class="price">{{c.moneysum}}</p>
+            <p class="price">{{ c.item_price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</p>
           </div>
         </a>
       </div>
@@ -89,7 +89,7 @@
       <h2>Sản phẩm</h2>
       <ul class="summary-table">
         <li><span>Số lượng:</span> <span>{{total}}</span></li>
-        <li><span>Tổng tiền:</span> <span>{{money}}</span></li>
+        <li><span>Tổng tiền:</span> <span>{{ money.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</span></li>
       </ul>
       <div class="checkout-btn mt-100">
         <a routerLink="/customer/cart" class="btn essence-btn" style="background: blue;padding: 12px;color: white;">Giỏ hàng</a>

@@ -38,6 +38,12 @@ export class ChitietComponent extends BaseComponent implements OnInit {
       });
     }); 
   }
+  swish(it)
+  {
+    this._api.get('/api/item/get-by-id-swish/'+ it.item_id).takeUntil(this.unsubscribe).subscribe((res:any) => {
+      alert('Đã thích sản phẩm !'); 
+      }); 
+  }
   addToCart(item) { 
     this._cart.addToCart(item);
     alert('Thêm thành công!'); 

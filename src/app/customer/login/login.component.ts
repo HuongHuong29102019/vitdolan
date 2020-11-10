@@ -1,7 +1,7 @@
 import { BaseComponent } from '../../lib/base-component';
 import { Component, Injector, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { FormBuilder,FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent extends BaseComponent implements OnInit {
   public registerForm: FormGroup;
   public loginForm: FormGroup;
-  constructor(injector: Injector) { 
+  constructor(private fb: FormBuilder,private router: Router,injector: Injector) { 
     super(injector);
   }
 
@@ -32,11 +32,19 @@ export class LoginComponent extends BaseComponent implements OnInit {
     });
   }
   onSubmitLogin(value: any) { 
-
+    this._api.get('/api/customer/get-by-customer-id/'+ value.customer_email).takeUntil(this.unsubscribe).subscribe((res:any) => {
+      alert('Đăng nhập thành công');
+      this.loginForm = this.fb.group({
+        'username': [''],
+        'password': [''],
+      }); 
+      this.router.navigate(['/']);
+    
+       }, err => { });    
   }
   onSubmitRegister(value: any) { 
     this._api.post('/api/customer/create-item', {customer_email:value.email, customer_password:value.password} ).takeUntil(this.unsubscribe).subscribe(res => {
-     alert('Tạo thành công');
+     alert('Đăng ký thành công');
       }, err => { });      
 
   }

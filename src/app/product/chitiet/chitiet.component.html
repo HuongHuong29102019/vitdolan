@@ -39,7 +39,7 @@
                 <button type="submit" name="addtocart" value="5" class="btn essence-btn" style="background: blue;color: white;" (click)="addToCart(item)">Thêm giỏ hàng</button>
                 <!-- Favourite -->
                 <div class="product-favourite ml-4">
-                    <a href="#" class="favme fa fa-heart"></a>
+                    <a  class="favme fa fa-heart"(click)="swish(item)"></a>
                 </div>
             </div>
         </form>
@@ -69,7 +69,7 @@
                 <img src="{{it.item_image}}" alt="" style="width:255;height:300px">
                 <!-- Favourite -->
                 <div class="product-favourite">
-                  <a href="#" class="favme fa fa-heart"></a>
+                  <a (click)="swish(it)" class="favme fa fa-heart"></a>
                 </div>
               </div>
               <!-- Product Description -->
