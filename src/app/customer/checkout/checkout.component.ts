@@ -34,7 +34,6 @@ export class CheckoutComponent extends BaseComponent implements OnInit {
       dia_chi: new FormControl('', Validators.required),
       sdt: new FormControl('', Validators.required)       
     });
-
     this._cart.items.subscribe((res) => {
       this.items = res;
       this.total = 0;

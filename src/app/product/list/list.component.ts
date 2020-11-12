@@ -81,9 +81,4 @@ export class ListComponent extends BaseComponent implements OnInit {
       alert('Đã thích sản phẩm !'); 
       }); 
   }
-  onAsc() { 
-    this._api.get('/api/item/get-data-asc',).takeUntil(this.unsubscribe).subscribe(res => {
-      this.loadPage(this.page); 
-      });
-  }
 }

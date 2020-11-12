@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './shared/menu/menu.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { SortPipe } from './Pipes/sort.pipe';
 const routes: Routes = [
   {
     path: 'login',
@@ -42,9 +41,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     MenuComponent,
-    FooterComponent,
-    SortPipe ],
-    exports: [SortPipe],
+    FooterComponent],
+    exports: [],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
